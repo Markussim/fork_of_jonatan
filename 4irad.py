@@ -1,22 +1,30 @@
-
+"""
 plan = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ",
         " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
-
+"""
 
 plan_var = 0
 
-"""
 plan = []
 
-while plan_var > 83:
+while plan_var < 83:
     plan.append(" ")
     plan_var = plan_var + 1
-"""
+
+print(plan)
 
 p = ["x", "o"]
 t = 0
 game = True
 pw = [0, 0]
+
+
+def location_thing(plan_2, drag_2):
+    for i in range(0, 6):
+        if plan_2[i * 7 + 0] == " ":
+            return plan_2[i * 7 + 0]
+
+
 while game:
     for i in range(0, 6):
         gfx = "|".join(plan[((5 - i) * 7):(7 + ((5 - i) * 7))])
@@ -52,48 +60,52 @@ while game:
         game = False
     tur = True
     if game:
-        while tur:
-            print("spelare", (t + 1))
-            drag = input()
-            if drag == "1":
-                for i in range(0, 6):
-                    if plan[i * 7 + 0] == " " and tur:
-                        plan[i * 7 + 0] = p[t]
-                        tur = False
-            if drag == "2":
-                for i in range(0, 6):
-                    if plan[i * 7 + 1] == " " and tur:
-                        plan[i * 7 + 1] = p[t]
-                        tur = False
-            if drag == "3":
-                for i in range(0, 6):
-                    if plan[i * 7 + 2] == " " and tur:
-                        plan[i * 7 + 2] = p[t]
-                        tur = False
-            if drag == "4":
-                for i in range(0, 6):
-                    if plan[i * 7 + 3] == " " and tur:
-                        plan[i * 7 + 3] = p[t]
-                        tur = False
-            if drag == "5":
-                for i in range(0, 6):
-                    if plan[i * 7 + 4] == " " and tur:
-                        plan[i * 7 + 4] = p[t]
-                        tur = False
-            if drag == "6":
-                for i in range(0, 6):
-                    if plan[i * 7 + 5] == " " and tur:
-                        plan[i * 7 + 5] = p[t]
-                        tur = False
-            if drag == "7":
-                for i in range(0, 6):
-                    if plan[i * 7 + 6] == " " and tur:
-                        plan[i * 7 + 6] = p[t]
-                        tur = False
-    if t == 0:
-        t = 1
-    else:
-        t = 0
+        print("spelare", (t + 1))
+        drag = input()
+
+    print(location_thing(plan, drag))
+
+    """
+    if drag == "1":
+        for i in range(0, 6):
+            if plan[i * 7 + 0] == " " and tur:
+                plan[i * 7 + 0] = p[t]
+                tur = False
+    if drag == "2":
+        for i in range(0, 6):
+            if plan[i * 7 + 1] == " " and tur:
+                plan[i * 7 + 1] = p[t]
+                tur = False
+    if drag == "3":
+        for i in range(0, 6):
+            if plan[i * 7 + 2] == " " and tur:
+                plan[i * 7 + 2] = p[t]
+                tur = False
+    if drag == "4":
+        for i in range(0, 6):
+            if plan[i * 7 + 3] == " " and tur:
+                plan[i * 7 + 3] = p[t]
+                tur = False
+    if drag == "5":
+        for i in range(0, 6):
+            if plan[i * 7 + 4] == " " and tur:
+                plan[i * 7 + 4] = p[t]
+                tur = False
+    if drag == "6":
+        for i in range(0, 6):
+            if plan[i * 7 + 5] == " " and tur:
+                plan[i * 7 + 5] = p[t]
+                tur = False
+    if drag == "7":
+        for i in range(0, 6):
+            if plan[i * 7 + 6] == " " and tur:
+                plan[i * 7 + 6] = p[t]
+                tur = False
+    """
+if t == 0:
+    t = 1
+else:
+    t = 0
 for i in range(0, 2):
     if pw[i] == 1:
         print("Spelare", (i + 1), "har vunnit")

@@ -11,7 +11,7 @@ while plan_var < 83:
     plan.append(" ")
     plan_var = plan_var + 1
 
-print(plan)
+# print(plan)
 
 p = ["x", "o"]
 t = 0
@@ -19,10 +19,14 @@ game = True
 pw = [0, 0]
 
 
-def location_thing(plan_2, drag_2):
+def location_thing(plan, drag_2):
     for i in range(0, 6):
-        if plan_2[i * 7 + 0] == " ":
-            return plan_2[i * 7 + 0]
+        drag_2 -= 1
+        print("Drag_2 = " + drag_2)
+        the_return = i * 7 + 2
+        if plan[the_return] == " ":
+            return the_return
+
 
 
 while game:
@@ -46,8 +50,8 @@ while game:
                 if plan[x + y * 7] == p[e] and plan[x + 1 + (y + 1) * 7] == p[e] and plan[x + 2 + (y + 2) * 7] == p[e] \
                         and plan[x + 3 + (y + 3) * 7] == p[e]:
                     pw[e] = 1
-                if plan[6 - x + y * 7] == p[e] and plan[5 - x + (y + 1) * 7] == p[e] and plan[4 - x + (y + 2) * 7] == p[
-                    e] and plan[3 - x + (y + 3) * 7] == p[e]:
+                if plan[6 - x + y * 7] == p[e] and plan[5 - x + (y + 1) * 7] == p[e] \
+                        and plan[4 - x + (y + 2) * 7] == p[e] and plan[3 - x + (y + 3) * 7] == p[e]:
                     pw[e] = 1
     for i in range(0, 2):
         if pw[i] == 1:
@@ -63,7 +67,14 @@ while game:
         print("spelare", (t + 1))
         drag = input()
 
+    # print("Drag = " + drag)
+    # print("Plan = " + plan)
+
     print(location_thing(plan, drag))
+
+    # plan[] = p[t]
+
+    # plan_2[i * 7 + drag_2] = p[t]
 
     """
     if drag == "1":

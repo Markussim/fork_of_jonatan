@@ -28,7 +28,6 @@ def location_thing(plan, drag_2):
             return the_return
 
 
-
 while game:
     for i in range(0, 6):
         gfx = "|".join(plan[((5 - i) * 7):(7 + ((5 - i) * 7))])
